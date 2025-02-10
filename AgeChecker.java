@@ -11,6 +11,7 @@ public class AgeChecker {
         // Тестові приклади
         System.out.println(checkAge(18)); // → "Ви доросла особа"
         System.out.println(checkAge(0));  // → "Ви не є дорослою особою"
+        System.out.println(checkAge(16));  // → "Ви не є дорослою особою"
         System.out.println(checkAge(99)); // → "Ви доросла особа"
     }
 }
