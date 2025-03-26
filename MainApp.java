@@ -8,7 +8,7 @@ enum Profession {
     DESIGNER
 }
 
-
+// Абстрактний клас Person
 abstract class Person {
     private String name;
     private int age;
@@ -44,15 +44,15 @@ abstract class Person {
         this.role = role;
     }
 
-
+    // Абстрактний метод, який має реалізовуватись у підкласах
     public abstract void display();
 
-
+    // Перевизначуваний метод
     public void changeProfession(Profession newRole) {
         this.role = newRole;
     }
 
-
+    // Перевантажений метод
     public void changeProfession(String newRoleStr) {
         try {
             Profession newRole = Profession.valueOf(newRoleStr.toUpperCase());
@@ -63,7 +63,7 @@ abstract class Person {
     }
 }
 
-
+// Клас Man
 class Man extends Person {
     public static final String GENDER = "Чоловік";
 
@@ -81,7 +81,7 @@ class Man extends Person {
     }
 }
 
-
+// Клас Woman
 class Woman extends Person {
     public static final String GENDER = "Жінка";
 
@@ -99,7 +99,7 @@ class Woman extends Person {
     }
 }
 
-
+// Основний клас
 public class MainApp {
     public static void main(String[] args) {
         Man man1 = new Man("Андрій", 35, Profession.ENGINEER);
@@ -112,83 +112,6 @@ public class MainApp {
 
         System.out.println("Зміна професії Марії...");
         woman2.changeProfession("ARCHITECT"); // використано перевантаження
-        woman2.display();
-    }
-}
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public void setAge(int age) {
-        this.age = age;
-    }
-
-    public void setRole(Profession role) {
-        this.role = role;
-    }
-
-    public void changeProfession(Profession newRole) {
-        this.role = newRole;
-    }
-
-
-    @Override
-    public void display() {
-        System.out.println("Ім'я: " + name);
-        System.out.println("Вік: " + age);
-        System.out.println("Професія: " + role);
-    }
-}
-
-
-class Man extends Person {
-    public static final String GENDER = "Чоловік";
-
-    public Man(String name, int age, Profession role) {
-        super(name, age, role);
-    }
-
-    @Override
-    public void display() {
-        System.out.println("Стать: " + GENDER);
-        super.display();
-        System.out.println("-------------------------");
-    }
-}
-
-
-class Woman extends Person {
-    public static final String GENDER = "Жінка";
-
-    public Woman(String name, int age, Profession role) {
-        super(name, age, role);
-    }
-
-    @Override
-    public void display() {
-        System.out.println("Стать: " + GENDER);
-        super.display();
-        System.out.println("-------------------------");
-    }
-}
-
-
-public class MainApp {
-    public static void main(String[] args) {
-        // Створення об'єктів
-        Man man1 = new Man("Андрій", 35, Profession.ENGINEER);
-        Woman woman1 = new Woman("Олена", 28, Profession.PROGRAMMER);
-        Woman woman2 = new Woman("Марія", 42, Profession.TEACHER);
-
-
-        man1.display();
-        woman1.display();
-        woman2.display();
-
-
-        System.out.println("Зміна професії Марії...");
-        woman2.changeProfession(Profession.ARCHITECT);
         woman2.display();
     }
 }
